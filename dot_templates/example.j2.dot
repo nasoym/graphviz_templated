@@ -14,10 +14,14 @@ digraph G {
   node[shape="rect",fontname="helvetica"];
   edge[fontname="helvetica"];
 
+  {% macro foo(bar) -%}
+    {% print '%s ---- ' % bar %}
+  {%- endmacro %}
+
   {% for node in nodes%} 
     {{node.id}}[
     {% if node.name is defined %}
-      label="{{node.name}}"
+      label="{{foo(node.name)}}"
     {% else %}
       label="{{node.id}}"
     {% endif %}

@@ -9,22 +9,32 @@ digraph G {
   edge[fontname="helvetica"];
 
   {% for node in nodes%} 
-    {{node.name}}[
-      label="{{node.name}}"
-      {% if node.style is defined %}
-        style="{{styles[node.style].style}}"
-      {% else %}
-        style="dashed"
-      {% endif %}
-      {% if node.bgcolor is defined %}
-        fillcolor={{node.bgcolor}}
-        style=filled
-      {% endif %}
+    {{node.id}}[
+    {% if node.name is defined %}
+      label="{{node.name[0:5]}}"
+    {% else %}
+      label="{{node.id}}"
+    {% endif %}
+    {% if node.style is defined %}
+      style="{{styles.nodes[node.style].style}}"
+    {% else %}
+      style="dashed"
+    {% endif %}
+    {% if node.bgcolor is defined %}
+      fillcolor={{node.bgcolor}}
+      style=filled
+    {% endif %}
     ];
   {% endfor %}
 
   {% for edge in edges%} 
-    {{edge.nodes.0}} -> {{edge.nodes.1}};
+    {{edge.nodes.0}} -> {{edge.nodes.1}}[
+    {% if edge.style is defined %}
+      {% if styles.edges[edge.style].raw is defined %}
+        {{styles.edges[edge.style].raw}}
+      {% endif %}
+    {% endif %}
+    ];
   {% endfor %}
 
 }

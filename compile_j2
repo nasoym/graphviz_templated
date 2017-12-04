@@ -1,4 +1,27 @@
 #!/usr/bin/env bash
 
-j2 -f json dot_templates/example.j2.dot json_data/example.json  | dot -Tpng -o rendering/example.png
+set -o errexit  # abort when any commands exits with error
+set -o pipefail # abort when any command in a pipe exits with error
+set -o nounset  # abort when any unset variable is used
+set -f # prevent bash from expanding glob
+trap 'echo "$0: line ${LINENO}: exiting because of error";exit 1' ERR
+
+: ${data_file:="${1:-"json_data/example.json"}"}
+: ${template_file:="${2:-"dot_templates/example.j2.dot"}"}
+
+: ${style_file:="json_data/styles.json"}
+
+: ${render_file_name:="$(basename -s .json ${data_file})"}
+: ${render_folder:="rendering"}
+: ${render_file:="${render_folder}/${render_file_name}.png"}
+
+mkdir -p rendering
+j2 -f json \
+  ${template_file} \
+  <( \
+    cat ${data_file} \
+    | jq --argjson styles "$(cat ${style_file})" \
+    '.styles=($styles.styles * .styles)' \
+  ) \
+  | dot -Tpng -o ${render_file}
 

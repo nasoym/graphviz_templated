@@ -1,0 +1,30 @@
+digraph G {
+  layout="dot";
+  rankdir=TB;
+  concentrate=true;
+  compound=true;
+  newrank=true;
+  fontname="helvetica";
+  node[shape="rect",fontname="helvetica"];
+  edge[fontname="helvetica"];
+
+  {% for node in nodes%} 
+    {{node.name}}[
+      label="{{node.name}}"
+      {% if node.style is defined %}
+        style="{{styles[node.style].style}}"
+      {% else %}
+        style="dashed"
+      {% endif %}
+      {% if node.bgcolor is defined %}
+        fillcolor={{node.bgcolor}}
+        style=filled
+      {% endif %}
+    ];
+  {% endfor %}
+
+  {% for edge in edges%} 
+    {{edge.nodes.0}} -> {{edge.nodes.1}};
+  {% endfor %}
+
+}

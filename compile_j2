@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+j2 -f json dot_templates/example.j2.dot json_data/example.json  | dot -Tpng -o rendering/example.png
+

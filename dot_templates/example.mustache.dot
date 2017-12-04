@@ -1,0 +1,28 @@
+digraph G {
+  layout="dot";
+  rankdir=TB;
+  concentrate=true;
+  compound=true;
+  newrank=true;
+  fontname="helvetica";
+  node[shape="rect",fontname="helvetica"];
+  edge[fontname="helvetica"];
+
+  {{#nodes}} 
+    {{name}}[
+      label="{{name}}"
+    {{#bgcolor}}
+      fillcolor={{.}}
+      style=filled
+    {{/bgcolor}}
+    {{^bgcolor}}
+      color="grey"
+    {{/bgcolor}}
+    ]; 
+  {{/nodes}}
+
+  {{#edges}} 
+    {{nodes.0}} -> {{nodes.1}};
+  {{/edges}}
+
+}

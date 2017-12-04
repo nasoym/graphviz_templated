@@ -7,7 +7,7 @@
     },
     "edges": {
       "foo":{
-        "raw":"color=blue;penwidth=5;"
+        "raw":"color=blue;penwidth=8;"
       }
     }
   },
@@ -49,7 +49,7 @@
       "nodes":["node4","node5"]
     },
     {
-      "nodes":["node1","node3"],
+      "nodes":["node1","node3:ne"],
       "style":"foo"
     },
     {

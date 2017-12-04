@@ -4,6 +4,12 @@ digraph G {
   concentrate=true;
   compound=true;
   newrank=true;
+  pad="0.2,0.2";
+  splines=curved;
+  /* splines=polyline; */
+  forcelabels=true;
+  outputorder="edgesfirst";
+
   fontname="helvetica";
   node[shape="rect",fontname="helvetica"];
   edge[fontname="helvetica"];

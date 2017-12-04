@@ -1,21 +1,11 @@
 {
   "styles":{
     "nodes": {
-      "note":{
-        "bgcolor":"khaki",
-        "color":"red",
-        "style":"filled,dotted,rounded"
-      },
-      "info":{
-        "bgcolor":"wheat",
-        "color":"blue",
-        "style":"filled"
-      }
+      "note":"style=\"filled,dotted,rounded\";color=red;fillcolor=khaki;",
+      "info":"style=\"filled\";fillcolor=wheat;color=blue;"
     },
     "edges": {
-      "note":{
-        "raw":"color=pink;penwidth=3;style=\"dashed\""
-      }
+      "note":"color=pink;penwidth=3;style=\"dashed\""
     }
   },
   "nodes":[

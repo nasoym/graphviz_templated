@@ -1,21 +1,18 @@
 {
   "styles":{
     "nodes": {
-      "foo":{
-        "raw":"color=yellow;"
-      }
+      "foo":"color=yellow;"
     },
     "edges": {
-      "foo":{
-        "raw":"color=blue;penwidth=8;"
-      }
+      "foo":"color=blue;penwidth=8;"
     }
   },
   "nodes":[
     {
       "id":"node1",
       "name": "fkffkfkfkfkf dkdjkd djfkasjdfa sdfjasldfkjas dfdskdkfksdkf skd kfskdkfd",
-      "bgcolor":"blue"
+      "style":"info",
+      "attributes":"fillcolor=red;"
     },
     {
       "id":"node2",
@@ -32,7 +29,7 @@
     {
       "id":"node5",
       "style":"info",
-      "bgcolor":"red"
+      "attributes":"fillcolor=red;"
     },
     {
       "id":"node6"
@@ -46,7 +43,8 @@
       "nodes":["node3","node4"]
     },
     {
-      "nodes":["node4","node5"]
+      "nodes":["node4","node5"],
+      "attributes":"color=green;"
     },
     {
       "nodes":["node1","node3:ne"],

@@ -17,22 +17,17 @@ digraph G {
   {% for node in nodes%} 
     {{node.id}}[
     {% if node.name is defined %}
-      label="{{node.name[0:5]}}"
+      label="{{node.name}}"
     {% else %}
       label="{{node.id}}"
     {% endif %}
     {% if node.style is defined %}
-      {% if styles.nodes[node.style].raw is defined %}
-        {{styles.nodes[node.style].raw}}
-      {% else %}
-        style="{{styles.nodes[node.style].style}}"
+      {% if styles.nodes[node.style] is defined %}
+        {{styles.nodes[node.style]}}
       {% endif %}
-    {% else %}
-      style="dashed"
     {% endif %}
-    {% if node.bgcolor is defined %}
-      fillcolor={{node.bgcolor}}
-      style=filled
+    {% if node.attributes is defined %}
+      {{node.attributes}}
     {% endif %}
     ];
   {% endfor %}
@@ -40,9 +35,12 @@ digraph G {
   {% for edge in edges%} 
     {{edge.nodes.0}} -> {{edge.nodes.1}}[
     {% if edge.style is defined %}
-      {% if styles.edges[edge.style].raw is defined %}
-        {{styles.edges[edge.style].raw}}
+      {% if styles.edges[edge.style] is defined %}
+        {{styles.edges[edge.style]}}
       {% endif %}
+    {% endif %}
+    {% if edge.attributes is defined %}
+      {{edge.attributes}}
     {% endif %}
     ];
   {% endfor %}

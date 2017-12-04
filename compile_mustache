@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-mustache json_data/example.json dot_templates/example.mustache.dot | dot -Tpng -o rendering/example.png
-
-

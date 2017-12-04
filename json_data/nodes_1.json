@@ -1,6 +1,9 @@
 {
   "styles":{
     "nodes": {
+      "foo":{
+        "raw":"color=yellow;"
+      }
     },
     "edges": {
       "foo":{
@@ -19,7 +22,8 @@
       "style":"note"
     },
     {
-      "id":"node3"
+      "id":"node3",
+      "style":"foo"
     },
     {
       "id":"node4",

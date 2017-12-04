@@ -16,7 +16,11 @@ digraph G {
       label="{{node.id}}"
     {% endif %}
     {% if node.style is defined %}
-      style="{{styles.nodes[node.style].style}}"
+      {% if styles.nodes[node.style].raw is defined %}
+        {{styles.nodes[node.style].raw}}
+      {% else %}
+        style="{{styles.nodes[node.style].style}}"
+      {% endif %}
     {% else %}
       style="dashed"
     {% endif %}

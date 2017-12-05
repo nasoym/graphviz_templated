@@ -11,7 +11,7 @@
   "nodes":[
     {
       "id":"node1",
-      "name": "fkffkfkfkfkf dkdjkd djfkasjdfa sdfjasldfkjas dfdskdkfksdkf skd kfskdkfd",
+      "name": "label for node 1",
       "bgcolor":"blue"
     },
     {
@@ -46,6 +46,10 @@
     },
     {
       "nodes":["node1","node3"]
+    },
+    {
+      "nodes":["node5","node6"],
+      "attributes":"color=green;constraint=false;dir=back;xlabel=\"edge label\";"
     },
     {
       "nodes":["node1","node6"],

@@ -14,7 +14,7 @@ with a templating engine (ninja2) in order to compensate shortcomings within the
 * `./compile` 
 * `./compile json_data/nodes_1.json` 
 
-### using the docker container
+### Using the docker container
 
 ## Example
 
